@@ -46,30 +46,24 @@ public static class AESMath
         try
         {
             // generate the key from the shared secret and the salt
-            Rfc2898DeriveBytes key = new Rfc2898DeriveBytes(sharedSecret, new MD5CryptoServiceProvider().ComputeHash(new UnicodeEncoding().GetBytes(sharedSecret)));
+            Rfc2898DeriveBytes key = new(sharedSecret, new MD5CryptoServiceProvider().ComputeHash(new UnicodeEncoding().GetBytes(sharedSecret)));
 
             // Create the streams used for decryption.
             byte[] bytes = Convert.FromBase64String(cipherText);
-            using (MemoryStream msDecrypt = new MemoryStream(bytes))
-            {
-                // Create a RijndaelManaged object with the specified key and IV.
-                aesAlg = new RijndaelManaged();
-                aesAlg.Key = key.GetBytes(aesAlg.KeySize / 8);
+            using MemoryStream msDecrypt = new MemoryStream(bytes);
+            // Create a RijndaelManaged object with the specified key and IV.
+            aesAlg = new RijndaelManaged();
+            aesAlg.Key = key.GetBytes(aesAlg.KeySize / 8);
 
-                // Get the initialization vector from the encrypted stream
-                aesAlg.IV = ReadByteArray(msDecrypt);
+            // Get the initialization vector from the encrypted stream
+            aesAlg.IV = ReadByteArray(msDecrypt);
 
-                // Create a decrytor to perform the stream transform.
-                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
-                using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
-                {
-                    using (StreamReader srDecrypt = new StreamReader(csDecrypt))
-                    {
-                        // Read the decrypted bytes from the decrypting stream and place them in a string.
-                        plaintext = srDecrypt.ReadToEnd();
-                    }
-                }
-            }
+            // Create a decrytor to perform the stream transform.
+            ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+            using CryptoStream csDecrypt = new(msDecrypt, decryptor, CryptoStreamMode.Read);
+            using StreamReader srDecrypt = new(csDecrypt);
+            // Read the decrypted bytes from the decrypting stream and place them in a string.
+            plaintext = srDecrypt.ReadToEnd();
         }
         finally
         {
@@ -109,7 +103,7 @@ public static class AESMath
         try
         {
             // generate the key from the shared secret and the salt
-            Rfc2898DeriveBytes key = new Rfc2898DeriveBytes(sharedSecret, new MD5CryptoServiceProvider().ComputeHash(new UnicodeEncoding().GetBytes(sharedSecret)));
+            Rfc2898DeriveBytes key = new(sharedSecret, new MD5CryptoServiceProvider().ComputeHash(new UnicodeEncoding().GetBytes(sharedSecret)));
 
             // Create a RijndaelManaged object
             aesAlg = new RijndaelManaged();
@@ -119,21 +113,17 @@ public static class AESMath
             ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
             // Create the streams used for encryption.
-            using (MemoryStream msEncrypt = new MemoryStream())
+            using MemoryStream msEncrypt = new();
+            // prepend the IV
+            msEncrypt.Write(BitConverter.GetBytes(aesAlg.IV.Length), 0, sizeof(int));
+            msEncrypt.Write(aesAlg.IV, 0, aesAlg.IV.Length);
+            using (CryptoStream csEncrypt = new(msEncrypt, encryptor, CryptoStreamMode.Write))
             {
-                // prepend the IV
-                msEncrypt.Write(BitConverter.GetBytes(aesAlg.IV.Length), 0, sizeof(int));
-                msEncrypt.Write(aesAlg.IV, 0, aesAlg.IV.Length);
-                using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                {
-                    using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-                    {
-                        //Write all data to the stream.
-                        swEncrypt.Write(plainText);
-                    }
-                }
-                outStr = Convert.ToBase64String(msEncrypt.ToArray());
+                using StreamWriter swEncrypt = new(csEncrypt);
+                //Write all data to the stream.
+                swEncrypt.Write(plainText);
             }
+            outStr = Convert.ToBase64String(msEncrypt.ToArray());
         }
         finally
         {
