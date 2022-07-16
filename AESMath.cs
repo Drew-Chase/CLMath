@@ -37,6 +37,17 @@ public static class AESMath
             sharedSecret = Environment.MachineName;
         }
 
+        string l = "qwertyuiopasdfghjklzxcvbnm";
+        l += l.ToUpper();
+        char[] leagal = l.ToCharArray();
+        foreach (char c in sharedSecret)
+        {
+            if (!leagal.Contains(c))
+            {
+                sharedSecret.Replace(c + "", "");
+            }
+        }
+
         // Declare the RijndaelManaged object used to decrypt the data.
         RijndaelManaged aesAlg = null;
 
@@ -95,6 +106,16 @@ public static class AESMath
         if (string.IsNullOrEmpty(sharedSecret))
         {
             sharedSecret = Environment.MachineName;
+        }
+        string l = "qwertyuiopasdfghjklzxcvbnm";
+        l += l.ToUpper();
+        char[] leagal = l.ToCharArray();
+        foreach (char c in sharedSecret)
+        {
+            if (!leagal.Contains(c))
+            {
+                sharedSecret.Replace(c + "", "");
+            }
         }
 
         string outStr = null;                       // Encrypted string to return
