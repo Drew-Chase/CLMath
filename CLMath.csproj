@@ -4,12 +4,14 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>0.0.4</Version>
+    <Version>0.0.6</Version>
     <Description>A math utility</Description>
     <PackageProjectUrl>https://github.com/DcmanProductions/CLMath</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/DcmanProductions/CLMath</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>documentation.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
