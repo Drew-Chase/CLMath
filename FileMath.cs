@@ -3,6 +3,9 @@ using static System.Math;
 
 namespace ChaseLabs.Math;
 
+/// <summary>
+/// For 
+/// </summary>
 public class FileMath
 {
     #region Public Methods
@@ -43,22 +46,6 @@ public class FileMath
         }
     }
 
-    public static double FileSizeEB(double bytes)
-    {
-        double num = FileSizePB(bytes) / 1024;
-        double.TryParse("" + num, NumberStyles.Any, CultureInfo.InvariantCulture, out num);
-        num = Round(num, 2);
-        return num;
-    }
-
-    public static double FileSizeGB(double bytes)
-    {
-        double num = FileSizeMB(bytes) / 1024;
-        double.TryParse("" + num, NumberStyles.Any, CultureInfo.InvariantCulture, out num);
-        num = Round(num, 2);
-        return num;
-    }
-
     public static double FileSizeKB(double bytes)
     {
         double num = bytes / 1024;
@@ -75,9 +62,9 @@ public class FileMath
         return num;
     }
 
-    public static double FileSizePB(double bytes)
+    public static double FileSizeGB(double bytes)
     {
-        double num = FileSizeTB(bytes) / 1024;
+        double num = FileSizeMB(bytes) / 1024;
         double.TryParse("" + num, NumberStyles.Any, CultureInfo.InvariantCulture, out num);
         num = Round(num, 2);
         return num;
@@ -91,6 +78,21 @@ public class FileMath
         return num;
     }
 
+    public static double FileSizePB(double bytes)
+    {
+        double num = FileSizeTB(bytes) / 1024;
+        double.TryParse("" + num, NumberStyles.Any, CultureInfo.InvariantCulture, out num);
+        num = Round(num, 2);
+        return num;
+    }
+
+    public static double FileSizeEB(double bytes)
+    {
+        double num = FileSizePB(bytes) / 1024;
+        double.TryParse("" + num, NumberStyles.Any, CultureInfo.InvariantCulture, out num);
+        num = Round(num, 2);
+        return num;
+    }
     public static double FileSizeZB(double bytes)
     {
         double num = FileSizeZB(bytes) / 1024;
