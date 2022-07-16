@@ -4,29 +4,9 @@
         <name>CLMath</name>
     </assembly>
     <members>
-        <member name="M:ChaseLabs.Math.AESMath.DecryptStringAES(System.String,System.String)">
-            <summary>
-            Decrypt the given string. Assumes the string was encrypted using EncryptStringAES(), using
-            an identical sharedSecret.
-            </summary>
-            <param name="cipherText">The text to decrypt.</param>
-            <param name="sharedSecret">
-            A password used to generate a key for decryption. Default is Machine Name
-            </param>
-        </member>
-        <member name="M:ChaseLabs.Math.AESMath.EncryptStringAES(System.String,System.String)">
-            <summary>
-            Encrypt the given string using AES. The string can be decrypted using DecryptStringAES().
-            The sharedSecret parameters must match.
-            </summary>
-            <param name="plainText">The text to encrypt.</param>
-            <param name="sharedSecret">
-            A password used to generate a key for encryption. Default is Machine Name
-            </param>
-        </member>
         <member name="T:ChaseLabs.Math.FileMath">
             <summary>
-            For 
+            For
             </summary>
         </member>
         <member name="T:CLMath.Convert">

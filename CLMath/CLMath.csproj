@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>0.0.6</Version>
+    <Version>0.0.9</Version>
     <Description>A math utility</Description>
     <PackageProjectUrl>https://github.com/DcmanProductions/CLMath</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -12,10 +12,18 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>documentation.xml</DocumentationFile>
+    <PackageReleaseNotes>Simplified AES Code, Removed Shared Secret</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="LICENSE.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

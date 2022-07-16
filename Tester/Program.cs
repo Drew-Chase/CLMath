@@ -1,8 +1,7 @@
 ﻿using ChaseLabs.Math;
 
-string shared = "Hello/World64.jpg";
 string unenc = "Hello World";
-string crypt = AESMath.EncryptStringAES(unenc, shared);
+string crypt = AESMath.EncryptStringAES(unenc);
 Console.WriteLine(unenc);
 Console.WriteLine(crypt);
-Console.WriteLine(AESMath.DecryptStringAES(crypt, shared));
+Console.WriteLine(AESMath.DecryptStringAES(crypt));
