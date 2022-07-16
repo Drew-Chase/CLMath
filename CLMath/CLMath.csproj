@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>0.0.7</Version>
+    <Version>0.0.6</Version>
     <Description>A math utility</Description>
     <PackageProjectUrl>https://github.com/DcmanProductions/CLMath</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -16,10 +16,6 @@
 
   <ItemGroup>
     <None Remove="LICENSE.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="LICENSE.txt" />
   </ItemGroup>
 
   <ItemGroup>

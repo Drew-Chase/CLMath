@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CLMath</name>
+    </assembly>
+    <members>
+        <member name="M:ChaseLabs.Math.AESMath.DecryptStringAES(System.String,System.String)">
+            <summary>
+            Decrypt the given string. Assumes the string was encrypted using EncryptStringAES(), using
+            an identical sharedSecret.
+            </summary>
+            <param name="cipherText">The text to decrypt.</param>
+            <param name="sharedSecret">
+            A password used to generate a key for decryption. Default is Machine Name
+            </param>
+        </member>
+        <member name="M:ChaseLabs.Math.AESMath.EncryptStringAES(System.String,System.String)">
+            <summary>
+            Encrypt the given string using AES. The string can be decrypted using DecryptStringAES().
+            The sharedSecret parameters must match.
+            </summary>
+            <param name="plainText">The text to encrypt.</param>
+            <param name="sharedSecret">
+            A password used to generate a key for encryption. Default is Machine Name
+            </param>
+        </member>
+        <member name="T:ChaseLabs.Math.FileMath">
+            <summary>
+            For 
+            </summary>
+        </member>
+        <member name="T:CLMath.Convert">
+            <summary>
+            Class for converting one type to another
+            </summary>
+        </member>
+        <member name="M:CLMath.Convert.ToInt32(System.String)">
+            <summary>
+            Converts String to a 32bit Interger<br />
+            Returns -1 if it failed to convert
+            </summary>
+            <param name="value"></param>
+            <returns>the int or -1</returns>
+        </member>
+        <member name="M:CLMath.Convert.ToInt64(System.String)">
+            <summary>
+            Converts String to a 64bit Interger<br />
+            Returns -1 if it failed to convert
+            </summary>
+            <param name="value"></param>
+            <returns>the int or -1</returns>
+        </member>
+        <member name="M:CLMath.Convert.ToReal32(System.String)">
+            <summary>
+            Converts String to a 32bit Real<br />
+            Returns -1 if it failed to convert
+            </summary>
+            <param name="value"></param>
+            <returns>the int or -1</returns>
+        </member>
+        <member name="M:CLMath.Convert.ToReal64(System.String)">
+            <summary>
+            Converts String to a 64bit Real<br />
+            Returns -1 if it failed to convert
+            </summary>
+            <param name="value"></param>
+            <returns>the int or -1</returns>
+        </member>
+    </members>
+</doc>
