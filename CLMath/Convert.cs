@@ -1,9 +1,11 @@
-﻿namespace CLMath;
+﻿using System.Text;
+
+namespace CLMath;
 
 /// <summary>
 /// Class for converting one type to another
 /// </summary>
-public static class Convert
+public static class CLConverter
 {
     #region Public Methods
 
@@ -62,6 +64,19 @@ public static class Convert
         }
         return result;
     }
+
+    /// <summary>
+    /// Encodes string as base64
+    /// </summary>
+    /// <param name="plainText"></param>
+    /// <returns></returns>
+    public static string EncodeBase64(string plainText) => System.Convert.ToBase64String(Encoding.UTF8.GetBytes(plainText));
+    /// <summary>
+    /// Decodes base64 string to plain text
+    /// </summary>
+    /// <param name="base64"></param>
+    /// <returns></returns>
+    public static string DecodeBase64(string base64) => Encoding.UTF8.GetString(System.Convert.FromBase64String(base64));
 
     #endregion Public Methods
 }
