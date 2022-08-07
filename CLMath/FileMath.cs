@@ -1,12 +1,12 @@
 ﻿using System.Globalization;
 using static System.Math;
 
-namespace ChaseLabs.Math;
+namespace CLMath;
 
 /// <summary>
-/// For
+/// For math concerning files
 /// </summary>
-public class FileMath
+public class CLFileMath
 {
     #region Public Methods
 

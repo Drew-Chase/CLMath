@@ -1,8 +1,11 @@
 ﻿using System.Security.Cryptography;
 
-namespace ChaseLabs.Math;
+namespace CLMath;
 
-public static class AESMath
+/// <summary>
+/// A Library for all AES Math
+/// </summary>
+public static class CLAESMath
 {
     #region Public Methods
 
@@ -28,7 +31,7 @@ public static class AESMath
 
         using Aes aes = Aes.Create();
         ICryptoTransform decryptor = aes.CreateDecryptor(secret, secret);
-        using MemoryStream memStream = new(Convert.FromBase64String(cipherText));
+        using MemoryStream memStream = new(System.Convert.FromBase64String(cipherText));
         using CryptoStream csStream = new(memStream, decryptor, CryptoStreamMode.Read);
         using StreamReader reader = new(csStream);
         return reader.ReadToEnd();
@@ -64,7 +67,7 @@ public static class AESMath
             writer.Write(plainText);
         }
         byte[] b = memStream.ToArray();
-        return Convert.ToBase64String(memStream.ToArray());
+        return System.Convert.ToBase64String(memStream.ToArray());
     }
 
     #endregion Public Methods
