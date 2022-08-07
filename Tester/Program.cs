@@ -1,7 +1,7 @@
-﻿using ChaseLabs.Math;
+﻿using CLMath;
 
-string unenc = "Hello World";
-string crypt = AESMath.EncryptStringAES(unenc);
-Console.WriteLine(unenc);
-Console.WriteLine(crypt);
-Console.WriteLine(AESMath.DecryptStringAES(crypt));
+string plainText = "Hello World";
+string base64 = CLConverter.EncodeBase64(plainText);
+Console.WriteLine(plainText);
+Console.WriteLine(base64);
+Console.WriteLine(CLConverter.DecodeBase64(base64));

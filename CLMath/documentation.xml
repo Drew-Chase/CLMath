@@ -4,6 +4,22 @@
         <name>CLMath</name>
     </assembly>
     <members>
+        <member name="M:ChaseLabs.Math.AESMath.DecryptStringAES(System.String)">
+            <summary>
+            Decrypts a Encrypted Base64 to String
+            </summary>
+            <param name="cipherText"> </param>
+            <returns> </returns>
+            <exception cref="T:System.ArgumentNullException"> </exception>
+        </member>
+        <member name="M:ChaseLabs.Math.AESMath.EncryptStringAES(System.String)">
+            <summary>
+            Encrypts a String using AES128 Encryption
+            </summary>
+            <param name="plainText"> </param>
+            <returns> </returns>
+            <exception cref="T:System.ArgumentNullException"> </exception>
+        </member>
         <member name="T:ChaseLabs.Math.FileMath">
             <summary>
             For
@@ -16,35 +32,45 @@
         </member>
         <member name="M:CLMath.Convert.ToInt32(System.String)">
             <summary>
-            Converts String to a 32bit Interger<br />
-            Returns -1 if it failed to convert
+            Converts String to a 32bit Interger <br /> Returns -1 if it failed to convert
             </summary>
-            <param name="value"></param>
-            <returns>the int or -1</returns>
+            <param name="value"> </param>
+            <returns> the int or -1 </returns>
         </member>
         <member name="M:CLMath.Convert.ToInt64(System.String)">
             <summary>
-            Converts String to a 64bit Interger<br />
-            Returns -1 if it failed to convert
+            Converts String to a 64bit Interger <br /> Returns -1 if it failed to convert
             </summary>
-            <param name="value"></param>
-            <returns>the int or -1</returns>
+            <param name="value"> </param>
+            <returns> the int or -1 </returns>
         </member>
         <member name="M:CLMath.Convert.ToReal32(System.String)">
             <summary>
-            Converts String to a 32bit Real<br />
-            Returns -1 if it failed to convert
+            Converts String to a 32bit Real <br /> Returns -1 if it failed to convert
             </summary>
-            <param name="value"></param>
-            <returns>the int or -1</returns>
+            <param name="value"> </param>
+            <returns> the int or -1 </returns>
         </member>
         <member name="M:CLMath.Convert.ToReal64(System.String)">
             <summary>
-            Converts String to a 64bit Real<br />
-            Returns -1 if it failed to convert
+            Converts String to a 64bit Real <br /> Returns -1 if it failed to convert
             </summary>
-            <param name="value"></param>
-            <returns>the int or -1</returns>
+            <param name="value"> </param>
+            <returns> the int or -1 </returns>
+        </member>
+        <member name="M:CLMath.Convert.EncodeBase64(System.String)">
+            <summary>
+            Encodes string as base64
+            </summary>
+            <param name="plainText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CLMath.Convert.DecodeBase64(System.String)">
+            <summary>
+            Decodes base64 string to plain text
+            </summary>
+            <param name="base64"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>
