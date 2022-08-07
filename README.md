@@ -6,3 +6,6 @@ Adds ability to easly convert bytes to any other format (Megabytes, Kilobytes, e
 
 ## AES Math
 Adds ability to encrypt strings using SHA1-MD5 bit encryption via a salt (a.k.a shared key)
+
+## Converter
+Easily converts one format to another
