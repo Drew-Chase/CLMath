@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <Description>A math utility</Description>
     <PackageProjectUrl>https://github.com/DcmanProductions/CLMath</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -12,7 +12,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>documentation.xml</DocumentationFile>
-    <PackageReleaseNotes>Added Base64 Encoding and Decoding</PackageReleaseNotes>
+    <PackageReleaseNotes>Changed string notation from bits to bytes
+Ex: Kb to KB</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
